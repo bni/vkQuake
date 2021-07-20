@@ -19,6 +19,14 @@ Debug
 Release
 AppImage/AppDir
 AppImage/vkquake*.AppImage
+.DS_Store
+macOS/libs/*.dylib
+macOS/Quake.app/Contents/libs/*.dylib
+macOS/Quake.app/Contents/MacOS/vkquake
+macOS/Quake.app/Contents/Resources/id1/*.pak
+macOS/Quake.app/Contents/Resources/id1/music/*.wav
+macOS/Quake.app/Contents/Resources/history.txt
+macOS/Quake.app/Contents/Resources/id1/*.sav
 .settings
 .project
 .cproject

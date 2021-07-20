@@ -278,12 +278,13 @@ static char *OSX_StripAppBundle (char *dir)
 	q_strlcpy (osx_path, dir, sizeof(osx_path));
 	if (strcmp(basename(osx_path), "MacOS"))
 		return dir;
-	q_strlcpy (osx_path, dirname(osx_path), sizeof(osx_path));
-	if (strcmp(basename(osx_path), "Contents"))
-		return dir;
-	q_strlcpy (osx_path, dirname(osx_path), sizeof(osx_path));
-	if (!strstr(basename(osx_path), ".app"))
-		return dir;
+	// bni
+	//q_strlcpy (osx_path, dirname(osx_path), sizeof(osx_path));
+	//if (strcmp(basename(osx_path), "Contents"))
+	//	return dir;
+	//q_strlcpy (osx_path, dirname(osx_path), sizeof(osx_path));
+	//if (!strstr(basename(osx_path), ".app"))
+	//	return dir;
 	q_strlcpy (osx_path, dirname(osx_path), sizeof(osx_path));
 	return osx_path;
 }
@@ -309,6 +310,9 @@ static void Sys_GetBasedir (char *argv0, char *dst, size_t dstsize)
 	tmp = OSX_StripAppBundle(dst);
 	if (tmp != dst)
 		q_strlcpy (dst, tmp, dstsize);
+
+	// bni
+	q_strlcat (dst, "/Resources", MAX_OSPATH);
 }
 #else
 static void Sys_GetBasedir (char *argv0, char *dst, size_t dstsize)
